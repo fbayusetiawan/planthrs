@@ -16,6 +16,8 @@
                     <img src="<?= base_url('upload/fotokaryawan/' . $this->session->userdata("foto")) ?>" alt="" class="avatar-lg rounded-circle" />
                     <h5 class="mt-2 mb-0"><?= ucwords($this->session->userdata("namaKaryawan")) ?></h5>
                     <h6 class="text-muted font-weight-normal mt-2 mb-0"><?= $this->session->userdata("nrp") ?></h6>
+                    <h6></h6>
+                    <a href="<?= base_url('Home/Profile/edit/' . $profile->idKaryawan) ?>"> <button type="button" class="btn btn-primary btn-sm mr-1">Edit Profil</button></a>
                 </div>
                 <!-- <a href="<?= base_url($linkin . '/edit/' . $row->idKaryawan) ?>"> <button type="button" class="btn btn-primary btn-sm mr-1">Edit Profil</button></a> -->
 
@@ -30,7 +32,7 @@
                                     if (empty($profile->namaSection && $profile->namaJabatan)) {
                                         echo "<td> - </td>";
                                     } else {
-                                        echo "<td> $profile->namaSection $profile->namaJabatan </td>";
+                                        echo "<td> : $profile->namaSection $profile->namaJabatan </td>";
                                     }
 
                                     ?>
@@ -41,13 +43,13 @@
                                     if (empty($profile->statusKaryawan)) {
                                         echo "<td> - </td>";
                                     } else {
-                                        echo "<td> " . fd_karyawan($profile->statusKaryawan) . " </td>";
+                                        echo "<td> : " . fd_karyawan($profile->statusKaryawan) . " </td>";
                                     }
                                     ?>
                                 </tr>
                                 <tr>
                                     <th scope="row">Whatsapp</th>
-                                    <td><?= $profile->noTelp ?></td>
+                                    <td>: <?= $profile->noTelp ?></td>
                                 </tr>
 
 
@@ -70,7 +72,7 @@
                             Activity
                         </a>
                     </li>
-                    
+
 
                 </ul>
 
@@ -79,26 +81,26 @@
                         <div class="left-timeline mt-3 mb-3 pl-4">
                             <ul class="list-unstyled events mb-0">
                                 <!-- <?php if ($activity) : ?> -->
-                                    <!-- <?php foreach ($activity as $key) : ?> -->
-                                        <li class="event-list">
-                                            <div class="pb-4">
-                                                <div class="media">
-                                                    <div class="event-date text-center mr-4">
-                                                        <!-- <div class="bg-soft-primary p-1 rounded text-primary font-size-14"><?= date('d M Y', $key->createTime) ?></div> -->
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <!-- <h6 class="font-size-15 mt-0 mb-1"><?= $key->title ?></h6> -->
-                                                        <!-- <p class="text-muted font-size-14"><?= $key->subtitle ?></p> -->
-                                                    </div>
-                                                </div>
+                                <!-- <?php foreach ($activity as $key) : ?> -->
+                                <li class="event-list">
+                                    <div class="pb-4">
+                                        <div class="media">
+                                            <div class="event-date text-center mr-4">
+                                                <!-- <div class="bg-soft-primary p-1 rounded text-primary font-size-14"><?= date('d M Y', $key->createTime) ?></div> -->
                                             </div>
-                                        </li>
-                                    <!-- <?php endforeach; ?> -->
+                                            <div class="media-body">
+                                                <!-- <h6 class="font-size-15 mt-0 mb-1"><?= $key->title ?></h6> -->
+                                                <!-- <p class="text-muted font-size-14"><?= $key->subtitle ?></p> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- <?php endforeach; ?> -->
                                 <!-- <?php else : ?> -->
-                                    <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                         <a href="<?= base_url('Home/Profile/edit/' . $profile->idKaryawan) ?>"> Silahkan klik untuk melengkapi data diri anda.</a>
                                     </div> -->
-                                <?php endif ?>
+                            <?php endif ?>
 
                             </ul>
                         </div>
@@ -108,17 +110,17 @@
                     </div>
 
                     <!-- Judul -->
-                   
+
                     <!-- Surat -->
                     <div class="tab-pane fade" id="pills-projects" role="tabpanel" aria-labelledby="pills-projects-tab">
 
-                     
 
+
+
+                    </div>
 
                 </div>
-
             </div>
+            <!-- end card -->
         </div>
-        <!-- end card -->
     </div>
-</div>

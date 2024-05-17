@@ -17,102 +17,99 @@ $pemb = strtolower($this->uri->segment(4));
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <form class="needs-validation" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" method="post">
+                <form class="needs-validation" novalidate="" action="<?= base_url($linkin . '/editAction/' . $this->uri->segment(4)) ?>" method="post" enctype="multipart/form-data">
 
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Nomer KTP </label>
-                        <input type="text" class="form-control nip" autofocus name="nik" value="<?= $profile->nik ?>" required>
+                        <input type="text" class="form-control" autofocus name="nik" value="<?= $row->nik ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
-                    <div class="form-group mb-3">
-                        <label for="validationCustom01">NRP </label>
-                        <input type="text" class="form-control nip" name="nrp" value="<?= $profile->nrp ?>" required>
-                        <div class="invalid-feedback">
-                            Harus diisi!
-                        </div>
-                    </div>
+
+                    <input type="text" class="form-control" name="nrp" value="<?= $row->nrp ?>" hidden>
+                    <input type="text" class="form-control" name="targetTsr" value="<?= $row->targetTsr ?>" hidden>
+
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Nama Lengkap Karyawan</label>
-                        <input type="text" class="form-control" name="namaKaryawan" value="<?= $profile->namaKaryawan ?>" required>
+                        <input type="text" class="form-control" name="namaKaryawan" value="<?= $row->namaKaryawan ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Tempat Lahir </label>
-                        <input type="text" class="form-control" name="tempatLahir" value="<?= $profile->tempatLahir ?>" required>
+                        <input type="text" class="form-control" name="tempatLahir" value="<?= $row->tempatLahir ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Tanggal Lahir </label>
-                        <input type="date" class="form-control" name="tglLahir" value="<?= $profile->tglLahir ?>" required>
+                        <input type="date" class="form-control" name="tglLahir" value="<?= $row->tglLahir ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Jenis Kelamin </label>
-                        <?= form_dropdown('jk', fd_jk(), '', 'class="form-control"') ?>
+                        <?= form_dropdown('jk', fd_jk(), $row->jk, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Status Karyawan</label>
-                        <?= form_dropdown('statusKaryawan', fd_karyawan(), '', 'class="form-control"') ?>
+                        <?= form_dropdown('statusKaryawan', fd_karyawan(), $row->statusKaryawan, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Jabatan</label>
-                        <?= cmb_dinamis('idJabatan', 'jabatan', 'namaJabatan', 'idJabatan', $profile->idJabatan) ?>
+                        <?= cmb_dinamis('idJabatan', 'jabatan', 'namaJabatan', 'idJabatan', $row->idJabatan) ?>
                         <div class="invalid-feedback">
                             Harus di isi.
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Golongan</label>
-                        <?= cmb_dinamis('idGolongan', 'golongan', 'namaGolongan', 'idGolongan', $profile->idGolongan) ?>
+                        <?= cmb_dinamis('idGolongan', 'golongan', 'namaGolongan', 'idGolongan', $row->idGolongan) ?>
                         <div class="invalid-feedback">
                             Harus di isi.
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Section</label>
-                        <?= cmb_dinamis('idSection', 'section', 'namaSection', 'idSection', $profile->idSection) ?>
+                        <?= cmb_dinamis('idSection', 'section', 'namaSection', 'idSection', $row->idSection) ?>
                         <div class="invalid-feedback">
                             Harus di isi.
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Alamat</label>
-                        <input type="text" class="form-control" name="alamat" value="<?= $profile->alamat ?>" required>
+                        <input type="text" class="form-control" name="alamat" value="<?= $row->alamat ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">No Telepon</label>
-                        <input type="text" class="form-control" name="noTelp" value="<?= $profile->noTelp ?>" required>
+                        <input type="text" class="form-control" name="noTelp" value="<?= $row->noTelp ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">POH</label>
-                        <input type="text" class="form-control" name="poh" value="<?= $profile->poh ?>" required>
+                        <input type="text" class="form-control" name="poh" value="<?= $row->poh ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Tanggal Mulai Bekerja</label>
-                        <input type="date" class="form-control" name="hireDate" value="<?= $profile->hireDate ?>" required>
+                        <input type="date" class="form-control" name="hireDate" value="<?= $row->hireDate ?>" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>

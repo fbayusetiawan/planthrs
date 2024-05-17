@@ -14,7 +14,7 @@ class Pengaturan_m extends CI_Model
         return $this->db->get('karyawan')->row();
     }
 
-    function update($fotok)
+    function save($foto)
     {
         $object = [
             'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
@@ -33,7 +33,7 @@ class Pengaturan_m extends CI_Model
             'username' => htmlspecialchars($this->input->post('username', TRUE)),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
             'verifKaryawan' => '1',
-            'foto' => $fotok
+            'foto' => $foto
         ];
         $this->db->where('idKaryawan', $this->session->userdata('idKaryawan'));
         $this->db->update('karyawan', $object);

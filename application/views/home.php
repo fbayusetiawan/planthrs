@@ -97,7 +97,7 @@
                             </div>
                         </a>
                         <div class="dropdown-menu profile-dropdown-items dropdown-menu-right">
-                            <a href="pages-profile.html" class="dropdown-item notify-item">
+                            <a href="<?= base_url('Home/Profile/edit/' . $this->session->userdata('idKaryawan')) ?>" class="dropdown-item notify-item">
                                 <i data-feather="user" class="icon-dual icon-xs mr-2"></i>
                                 <span>My Account</span>
                             </a>
