@@ -24,6 +24,7 @@ $no = '1';
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Foto</th>
                             <th>NRP</th>
                             <th>Nama Karyawan</th>
                             <th>Jabatan</th>
@@ -41,6 +42,7 @@ $no = '1';
                         <?php foreach ($data as $row) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
+                                <td><img src="<?= base_url('upload/fotokaryawan/' . $row->foto) ?>" width="80px" alt=""></td>
                                 <td><?= $row->nrp ?></td>
                                 <td><?= $row->namaKaryawan ?></td>
                                 <td><?= $row->namaSection ?> <?= $row->namaJabatan ?></td>

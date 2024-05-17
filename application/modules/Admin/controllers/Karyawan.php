@@ -84,8 +84,8 @@ class Karyawan extends CI_Controller
     function upload_foto()
     {
         $config['upload_path']          = './upload/fotokaryawan/';
-        $config['allowed_types']        = 'jpg|png';
-        $config['max_size']             = 5024; // imb
+        $config['allowed_types']        = 'jpg|png|jpeg';
+        $config['max_size']             = 10024; // imb
         $this->load->library('upload', $config);
         // proses upload
         $this->upload->do_upload('foto');

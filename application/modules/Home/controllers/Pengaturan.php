@@ -36,14 +36,14 @@ class Pengaturan extends CI_Controller
     {
         $id = $this->uri->segment(4);
         $this->primaryModel->update($id, $this->upload_foto());
-        redirect('Home/Profile');
+        redirect('Auth/Login');
     }
 
     function upload_foto()
     {
         $config['upload_path']          = './upload/fotoKaryawan/';
         $config['allowed_types']        = 'jpg|png|jpeg';
-        $config['max_size']             = 5024; // imb
+        $config['max_size']             = 15024; // imb
         $this->load->library('upload', $config);
         // proses upload
         $this->upload->do_upload('foto');

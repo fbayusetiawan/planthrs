@@ -20,6 +20,19 @@ class Registrasi_m extends CI_Model
         return $this->db->get($this->namaTable)->row();
     }
 
+    // function totalBacklog()
+    // {
+    //     $this->db->select_sum('price');
+    //     $this->db->where('', $this->session->set_userdata('idBacklog'));
+    //     $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+    //     $query = $this->db->get('detail_backlog');
+    //     if ($query->num_rows() > 0) {
+    //         return $query->row()->price;
+    //     } else {
+    //         return 0;
+    //     }
+    // }
+
     function save()
     {
         $object = [

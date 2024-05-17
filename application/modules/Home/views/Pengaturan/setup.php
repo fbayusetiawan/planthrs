@@ -64,13 +64,13 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">POH</label>
+                        <label for="validationCustom01">Penempatan/POH</label>
                         <input type="text" class="form-control" value="<?= $row->poh ?>" name="poh" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label for="validationCustom01">Jabatan</label>
                         <select name="idJabatan" required class="form-control">
                             <option value="">Pilih Jabatan</option>
@@ -81,8 +81,8 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <div class="invalid-feedback">
                             Harus dipilih!
                         </div>
-                    </div>
-                    <div class="form-group mb-3">
+                    </div> -->
+                    <!-- <div class="form-group mb-3">
                         <label for="validationCustom01">Site</label>
                         <select name="idSite" required class="form-control">
                             <option value="">Pilih Site</option>
@@ -93,7 +93,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <div class="invalid-feedback">
                             Harus dipilih!
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Golongan</label>
                         <select name="idGolongan" required class="form-control">
@@ -106,7 +106,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             Harus dipilih!
                         </div>
                     </div>
-                    <div class="form-group mb-3">
+                    <!-- <div class="form-group mb-3">
                         <label for="validationCustom01">Section</label>
                         <select name="idSection" required class="form-control">
                             <option value="">Pilih Section</option>
@@ -117,7 +117,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         <div class="invalid-feedback">
                             Harus dipilih!
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Alamat</label>
                         <input type="text" class="form-control" value="<?= $row->alamat ?>" name="alamat" required>
@@ -157,13 +157,12 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Foto (Munggunakan Seragam HRS) <small><i>(format foto jpg | jpeg | png dengan max. 5mb)</i></label>
-                        <input type="file" class="form-control" name="foto">
+                        <input type="file" class="form-control" name="foto" required>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Simpan</button>
-                    <!-- <a href="<?= base_url($linkin . '/detail/' . $this->uri->segment(4)) ?>" class="btn btn-danger">Kembali</a> -->
                 </form>
             </div> <!-- end card-body-->
         </div> <!-- end card-->

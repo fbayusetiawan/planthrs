@@ -26,6 +26,7 @@ $no = '1';
                             <th>Part Number</th>
                             <th>Part Description</th>
                             <th>Qty Req</th>
+                            <th>Price</th>
                             <th>Status</th>
                             <th>Status Verify</th>
                             <th>Report By</th>
@@ -45,6 +46,10 @@ $no = '1';
                                 <td><?= $row->partNumber  ?></td>
                                 <td><?= $row->partDescription  ?></td>
                                 <td><?= $row->qtyReq  ?></td>
+                                <?php
+                                $total = $row->qtyReq * $row->price;
+                                ?>
+                                <td>Rp.<?= number_format($total, 0, ",", ".");  ?></td>
                                 <td><?= fd_statusPart($row->statusPart)  ?></td>
                                 <td><?= fd_statusVerif($row->verifyTemuan)  ?></td>
                                 <td><b><?= $row->nrp  ?></b><br>
@@ -75,7 +80,7 @@ $no = '1';
                 </button>
             </div>
             <div class="modal-body">
-                    <img src="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" width="250" alt="">
+                <img src="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" width="250" alt="">
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

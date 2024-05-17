@@ -26,6 +26,7 @@ class Halamanutama extends CI_Controller
         $data['backlogClose'] = $this->primaryModel->backlogClose();
         $data['part'] = $this->primaryModel->getAllDataBacklog();
         $data["wo"] = $this->primaryModel->getWo();
+        $data["totalBacklog"] = $this->primaryModel->totalBacklog();
 
         $this->template->load('template', $this->vn . '/list', $data);
     }

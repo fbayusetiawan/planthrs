@@ -28,6 +28,7 @@ $no = '1';
                             <th>Status</th>
                             <th>WO Number</th>
                             <th>Reservasi</th>
+                            <th>Price</th>
                             <th class="text-center">Aksi</th>
 
                         </tr>
@@ -45,6 +46,7 @@ $no = '1';
                                 <td><?= tgl_indo($row->tanggalTemuan)  ?></td>
                                 <td><?= fd_statusBacklog($row->statusBacklog)  ?></td>
                                 <td><?= $row->woNumber  ?></td>
+                                <td><?= $row->noReservasi  ?></td>
                                 <td><?= $row->noReservasi  ?></td>
                                 <td class="text-center">
                                     <div class="btn-group mb-0">

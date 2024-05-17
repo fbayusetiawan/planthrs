@@ -96,6 +96,17 @@ class Halamanutama_m extends CI_Model
             ->get()->result_array();
     }
 
+    function totalBacklog()
+    {
+        $this->db->select_sum('price');
+        // $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $query = $this->db->get('soh');
+        if ($query->num_rows() > 0) {
+            return $query->row()->price;
+        } else {
+            return 0;
+        }
+    }
 }
 
 /* End of file */

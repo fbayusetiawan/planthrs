@@ -36,14 +36,14 @@ $id = uniqid()
                 </div>
                 <div class="form-group mb-3">
                     <label for="validationCustom01">WO Number</label>
-                    <input type="number" class="form-control" value="<?= $row->woNumber ?>" name="woNumber" required>
+                    <input type="text" class="form-control" value="<?= $row->woNumber ?>" name="woNumber" required>
                     <div class="invalid-feedback">
                         Harus diisi!
                     </div>
                 </div>
                 <div class="form-group mb-3">
                     <label for="validationCustom01">No Reservasi</label>
-                    <input type="number" class="form-control" value="<?= $row->noReservasi ?>" name="noReservasi" required>
+                    <input type="text" class="form-control" value="<?= $row->noReservasi ?>" name="noReservasi" required>
                     <div class="invalid-feedback">
                         Harus diisi!
                     </div>

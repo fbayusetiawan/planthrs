@@ -100,15 +100,12 @@ class Karyawan_m extends CI_Model
 
         if (empty($foto) && empty($pass)) :
             $object = [
-                'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
+            'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
             'nrp' => htmlspecialchars($this->input->post('nrp', TRUE)),
             'namaKaryawan' => htmlspecialchars($this->input->post('namaKaryawan', TRUE)),
             'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
             'tglLahir' => htmlspecialchars($this->input->post('tglLahir', TRUE)),
             'employeeType' => htmlspecialchars($this->input->post('employeeType', TRUE)),
-            // 'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
-            // 'statusMenikah' => htmlspecialchars($this->input->post('statusMenikah', TRUE)),
-            // 'kebangsaan' => htmlspecialchars($this->input->post('kebangsaan', TRUE)),
             'idSite' => htmlspecialchars($this->input->post('idSite', TRUE)),
             'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
             'idJabatan' => htmlspecialchars($this->input->post('idJabatan', TRUE)),
@@ -125,15 +122,12 @@ class Karyawan_m extends CI_Model
         elseif (empty($foto) && !empty($pass)) :
             $object = [
 
-                'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
+            'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
             'nrp' => htmlspecialchars($this->input->post('nrp', TRUE)),
             'namaKaryawan' => htmlspecialchars($this->input->post('namaKaryawan', TRUE)),
             'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
             'tglLahir' => htmlspecialchars($this->input->post('tglLahir', TRUE)),
             'employeeType' => htmlspecialchars($this->input->post('employeeType', TRUE)),
-            // 'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
-            // 'statusMenikah' => htmlspecialchars($this->input->post('statusMenikah', TRUE)),
-            // 'kebangsaan' => htmlspecialchars($this->input->post('kebangsaan', TRUE)),
             'idSite' => htmlspecialchars($this->input->post('idSite', TRUE)),
             'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
             'idJabatan' => htmlspecialchars($this->input->post('idJabatan', TRUE)),
@@ -159,9 +153,6 @@ class Karyawan_m extends CI_Model
             'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
             'tglLahir' => htmlspecialchars($this->input->post('tglLahir', TRUE)),
             'employeeType' => htmlspecialchars($this->input->post('employeeType', TRUE)),
-            // 'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
-            // 'statusMenikah' => htmlspecialchars($this->input->post('statusMenikah', TRUE)),
-            // 'kebangsaan' => htmlspecialchars($this->input->post('kebangsaan', TRUE)),
             'idSite' => htmlspecialchars($this->input->post('idSite', TRUE)),
             'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
             'idJabatan' => htmlspecialchars($this->input->post('idJabatan', TRUE)),
@@ -171,7 +162,7 @@ class Karyawan_m extends CI_Model
             'hireDate' => htmlspecialchars($this->input->post('hireDate', TRUE)),
             'alamat' => htmlspecialchars($this->input->post('alamat', TRUE)),
             'poh' => htmlspecialchars($this->input->post('poh', TRUE)),
-                'targetTsr' => htmlspecialchars($this->input->post('targetTsr', TRUE)),
+            'targetTsr' => htmlspecialchars($this->input->post('targetTsr', TRUE)),
             'noTelp' => htmlspecialchars(str_replace('-', '', $this->input->post('noTelp', TRUE))),
             'username' => htmlspecialchars($this->input->post('username', TRUE)),
             'foto' => $foto,
@@ -180,15 +171,12 @@ class Karyawan_m extends CI_Model
         else :
             $object = [
 
-                'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
+            'nik' => htmlspecialchars($this->input->post('nik', TRUE)),
             'nrp' => htmlspecialchars($this->input->post('nrp', TRUE)),
             'namaKaryawan' => htmlspecialchars($this->input->post('namaKaryawan', TRUE)),
             'tempatLahir' => htmlspecialchars($this->input->post('tempatLahir', TRUE)),
             'tglLahir' => htmlspecialchars($this->input->post('tglLahir', TRUE)),
             'employeeType' => htmlspecialchars($this->input->post('employeeType', TRUE)),
-            // 'agama' => htmlspecialchars($this->input->post('agama', TRUE)),
-            // 'statusMenikah' => htmlspecialchars($this->input->post('statusMenikah', TRUE)),
-            // 'kebangsaan' => htmlspecialchars($this->input->post('kebangsaan', TRUE)),
             'idSite' => htmlspecialchars($this->input->post('idSite', TRUE)),
             'jk' => htmlspecialchars($this->input->post('jk', TRUE)),
             'idJabatan' => htmlspecialchars($this->input->post('idJabatan', TRUE)),
@@ -198,11 +186,11 @@ class Karyawan_m extends CI_Model
             'hireDate' => htmlspecialchars($this->input->post('hireDate', TRUE)),
             'alamat' => htmlspecialchars($this->input->post('alamat', TRUE)),
             'poh' => htmlspecialchars($this->input->post('poh', TRUE)),
-                'targetTsr' => htmlspecialchars($this->input->post('targetTsr', TRUE)),
+            'targetTsr' => htmlspecialchars($this->input->post('targetTsr', TRUE)),
             'noTelp' => htmlspecialchars(str_replace('-', '', $this->input->post('noTelp', TRUE))),
             'username' => htmlspecialchars($this->input->post('username', TRUE)),
             'password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
-            'foto' => 'hrs.jpg',
+            'foto' => $foto,
 
             ];
         endif;
