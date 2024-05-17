@@ -63,7 +63,7 @@ class Login extends CI_Controller
                         redirect('Home/Profile');
                     endif;
                 else :
-                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Login!, Email atau Password Salah!</div>');
+                    $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Login!, NRP atau Password Salah!</div>');
                     redirect('Auth/Login');
                 endif;
             else :
@@ -71,7 +71,7 @@ class Login extends CI_Controller
                 redirect('Auth/Login');
             endif;
         else :
-            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Login!, Email Tidak terdaftar. Silahkan Sign Up</div>');
+            $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">Gagal Login!, NRP Tidak terdaftar. Silahkan Hubungi Admin</div>');
             redirect('Auth/Login');
         endif;
     }
