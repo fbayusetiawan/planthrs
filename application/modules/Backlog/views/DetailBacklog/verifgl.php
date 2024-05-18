@@ -21,7 +21,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
 
                     <div class="form-group mb-3">
                         <label>Pilih Part Number <small>material - part number - part desc - mnemonic</small></label>
-                        <input list="datalistOptions1" name="idPart" required class="form-control" data-placeholder="">
+                        <input list="datalistOptions1" name="idPart" required class="form-control" id="idPart" onkeyup="getpart()" data-placeholder="">
                         <datalist id="datalistOptions1">
                             <option></option>
                             <?php foreach (soh() as $so) : ?>
@@ -30,6 +30,24 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         </datalist>
                         <div class="invalid-feedback">
                             Harus diisi!
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">Part</label>
+                        <div class="row">
+                            <div class="col-4">
+                                <label for="validationCustom01">Material</label>
+                                <input type="text" class="form-control" readonly id="material">
+                            </div>
+                            <div class="col-4">
+                                <label for="validationCustom01">Part Number</label>
+                                <input type="text" class="form-control" readonly id="partNumber">
+                            </div>
+                            <div class="col-4">
+                                <label for="validationCustom01">Part Desc</label>
+                                <input type="text" class="form-control" readonly id="partDescription">
+                            </div>
+                            <input type="text" class="form-control" hidden id="price" name="price">
                         </div>
                     </div>
                     <div class="form-group mb-3">
@@ -54,3 +72,21 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
         </div> <!-- end card-->
     </div> <!-- end col-->
 </div>
+
+<script>
+    function getpart() {
+        var idPart = $("#idPart").val();
+        $.ajax({
+            url: '<?= base_url("Backlog/DetailBacklog/ajaxpart") ?>',
+            data: "idPart=" + idPart,
+            success: function(data) {
+                var json = data,
+                    obj = JSON.parse(json);
+                $('#material').val(obj.material);
+                $('#partNumber').val(obj.partNumber);
+                $('#partDescription').val(obj.partDescription);
+                $('#price').val(obj.price);
+            }
+        })
+    }
+</script>

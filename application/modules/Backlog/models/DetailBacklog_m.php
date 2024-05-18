@@ -71,6 +71,9 @@ class DetailBacklog_m extends CI_Model
 
     function savePart()
     {
+        $barang = htmlspecialchars($this->input->post('qtyReq', TRUE));
+        $harga = htmlspecialchars($this->input->post('price', TRUE));
+        $total = $barang * $harga;
         $object = [
             'idDetailBacklog' => uniqid(),
             'idBacklog' => htmlspecialchars($this->input->post('idBacklog', TRUE)),
@@ -78,6 +81,7 @@ class DetailBacklog_m extends CI_Model
             'problemDesc' => htmlspecialchars($this->input->post('problemDesc', TRUE)),
             'idPart' => htmlspecialchars($this->input->post('idPart', TRUE)),
             'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
+            'price' => $total,
             'tglTemuan' => date('Y-m-d'),
             'statusPart' => htmlspecialchars($this->input->post('statusPart', TRUE)),
             'verifyTemuan' => '1',
@@ -116,8 +120,12 @@ class DetailBacklog_m extends CI_Model
 
     function updategl($Value)
     {
+        $barang = htmlspecialchars($this->input->post('qtyReq', TRUE));
+        $harga = htmlspecialchars($this->input->post('price', TRUE));
+        $total = $barang * $harga;
         $object = [
             'idPart' => htmlspecialchars($this->input->post('idPart', TRUE)),
+            'price' => $total,
             'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
             'planRepair' => htmlspecialchars($this->input->post('planRepair', TRUE)),
             'statusPart' => '2',

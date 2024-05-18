@@ -138,6 +138,31 @@ class DetailBacklog extends CI_Controller
         $this->primaryModel->delete($id);
         redirect('Backlog/' . $this->vn);
     }
+
+    function ajaxpart()
+    {
+        $idPart = $_GET['idPart'];
+        $this->db->where('idPart', $idPart);
+        // $this->db->join('detail_backlog', 'detail_backlog.idPart = soh.idPart', 'left');
+        $row = $this->db->get('soh')->row();
+        if (empty($row->idPart)) :
+            $data = [
+                'material' => 'Data Material Tidak ditemukan',
+                'partNumber' => 'Data Part Tidak ditemukan',
+                'partDescription' => 'Data Deskripsi Tidak ditemukan',
+                'price' => 'Data Price Tidak ditemukan',
+            ];
+            echo json_encode($data);
+        else :
+            $data = [
+                'material' => $row->material,
+                'partNumber' => $row->partNumber,
+                'partDescription' => $row->partDescription,
+                'price' => $row->price,
+            ];
+            echo json_encode($data);
+        endif;
+    }
 }
 
 /* End of file */
