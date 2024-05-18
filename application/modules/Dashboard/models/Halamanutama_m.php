@@ -88,19 +88,21 @@ class Halamanutama_m extends CI_Model
 
     function getTopChart()
     {
-        $data = $this->db->select('*')
-            ->from('order_items,SUM(qty) as total_qty')
-            ->order_by('total_qty', 'desc')
-            ->limit(5)
-            ->group_by('product_id')
-            ->get()->result_array();
+        $this->db->limit(5);
+        $this->db->order_by('detail_backlog.price', 'desc');
+        $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        $this->db->join('popunit', 'popunit.codeUnit = backlog1.codeUnit', 'left');
+        
+        return $this->db->get('detail_backlog')->result();
     }
 
     function totalBacklog()
     {
         $this->db->select_sum('price');
         // $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
-        $query = $this->db->get('soh');
+        $query = $this->db->get('detail_backlog');
         if ($query->num_rows() > 0) {
             return $query->row()->price;
         } else {

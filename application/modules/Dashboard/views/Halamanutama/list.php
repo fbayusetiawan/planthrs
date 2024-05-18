@@ -44,11 +44,7 @@ $no = '1';
                         <h4 class="mt-0 mb-1 font-size-22 font-weight-normal">Rp.<?= number_format($totalBacklog, 0, ",", "."); ?></h4>
                         <span class="text-muted">Total Cost Backlog</span>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user align-self-center icon-dual icon-lg">
-                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                        <line x1="3" y1="6" x2="21" y2="6"></line>
-                        <path d="M16 10a4 4 0 0 1-8 0"></path>
-                    </svg>
+                    <i class="icons-large" data-feather="tool"></i>
                 </div>
             </div>
         </div>
@@ -70,30 +66,24 @@ $no = '1';
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>#98754</td>
-                                <td>ASOS Ridley High</td>
-                                <td>Otto B</td>
-                                <td>$79.49</td>
-                                <td><span class="badge badge-soft-warning py-1">Pending</span></td>
-                            </tr>
+                            <?php $no = '1'; ?>
+                            <?php foreach ($topChart as $chart) : ?>
+                                <tr>
+                                    <td><?= $no++ ?></td>
+                                    <td><?= $chart->codeUnit ?></td>
+                                    <td><?= $chart->partDescription ?></td>
+                                    <td><?= $chart->qtyReq ?></td>
+                                    <?php
+                                    $total = $chart->qtyReq * $chart->price
+                                    ?>
+                                    <td>Rp.<?= number_format($total, 0, ",", ".");  ?></td>
+                                </tr>
+                            <?php endforeach ?>
                         </tbody>
                     </table>
                 </div> <!-- end table-responsive-->
             </div> <!-- end card-body-->
         </div> <!-- end card-->
-    </div>
-
-    <div class="col-md-6 col-xl-3">
-        <div class="card">
-            <div class="card-body">
-                <h5 class="card-title header-title border-bottom p-3 mb-0">Outstanding WO Backlog</h5>
-                <br />
-                <div id="piechart" style="width: 900px; height: 500px;">
-
-                </div>
-            </div>
-        </div>
     </div>
 
     <div class="col-md-6 col-xl-3">
@@ -109,11 +99,6 @@ $no = '1';
                 </div>
             </div>
         </div>
-    </div>
-
-
-
-    <div class="col-md-6 col-xl-3">
         <div class="card">
             <div class="card-body p-0">
                 <div class="media p-3">
@@ -127,6 +112,20 @@ $no = '1';
             </div>
         </div>
     </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title header-title border-bottom p-3 mb-0">Outstanding WO Backlog</h5>
+                <br />
+                <div id="piechart" style="width: 900px; height: 500px;">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 
 </div>
