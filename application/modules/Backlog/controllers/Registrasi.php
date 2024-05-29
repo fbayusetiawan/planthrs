@@ -11,7 +11,7 @@ class Registrasi extends CI_Controller
         // validation_page('3', 'Backlog/Karyawan');
         $this->load->model('Registrasi_m', 'primaryModel');
     }
-    public $titles = 'Registrasi Backlog Plant';
+    public $titles = 'Backlog';
     public $vn = 'Registrasi';
 
     public function index()

@@ -78,41 +78,30 @@ class DetailBacklog_m extends CI_Model
             'idDetailBacklog' => uniqid(),
             'idBacklog' => htmlspecialchars($this->input->post('idBacklog', TRUE)),
             'nrp' => htmlspecialchars($this->input->post('nrp', TRUE)),
-            'problemDesc' => htmlspecialchars($this->input->post('problemDesc', TRUE)),
             'idPart' => htmlspecialchars($this->input->post('idPart', TRUE)),
             'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
             'price' => $total,
             'tglTemuan' => date('Y-m-d'),
             'statusPart' => htmlspecialchars($this->input->post('statusPart', TRUE)),
             'verifyTemuan' => '1',
-            'fotoTemuan' => htmlspecialchars($this->input->post('fotoTemuan', TRUE)),
         ];
         $this->db->insert($this->namaTable, $object);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Part Berhasil Disimpan</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-primary" role="alert">Data Part Berhasil Ditambahkan</div>');
     }
 
-    function update($Value, $fotoTemuan)
+    function update($Value)
     {
-        if (empty($fotoTemuan)) {
-            $object = [
-                'problemDesc' => htmlspecialchars($this->input->post('problemDesc', TRUE)),
-                'partNumber' => htmlspecialchars($this->input->post('partNumber', TRUE)),
-                'partDesc' => htmlspecialchars($this->input->post('partDesc', TRUE)),
-                'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
-                'statusPart' => '1',
-                'verifyTemuan' => '1',
-            ];
-        } else {
-            $object = [
-                'problemDesc' => htmlspecialchars($this->input->post('problemDesc', TRUE)),
-                'partNumber' => htmlspecialchars($this->input->post('partNumber', TRUE)),
-                'partDesc' => htmlspecialchars($this->input->post('partDesc', TRUE)),
-                'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
-                'statusPart' => '1',
-                'verifyTemuan' => '1',
-                'fotoTemuan' => $fotoTemuan,
-            ];
-        }
+        $barang = htmlspecialchars($this->input->post('qtyReq', TRUE));
+        $harga = htmlspecialchars($this->input->post('price', TRUE));
+        $total = $barang * $harga;
+        $object = [
+            'idPart' => htmlspecialchars($this->input->post('idPart', TRUE)),
+            'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
+            'price' => $total,
+            'planRepair' => htmlspecialchars($this->input->post('planRepair', TRUE)),
+            'statusPart' => htmlspecialchars($this->input->post('statusPart', TRUE)),
+            'verifyTemuan' => '2',
+        ];
         $this->db->where($this->pk, $Value);
         $this->db->update($this->namaTable, $object);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Ubah</div>');
@@ -140,9 +129,6 @@ class DetailBacklog_m extends CI_Model
     function updatePlanner($Value)
     {
         $object = [
-            'idPart' => htmlspecialchars($this->input->post('idPart', TRUE)),
-            'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
-            'planRepair' => htmlspecialchars($this->input->post('planRepair', TRUE)),
             'statusPart' => htmlspecialchars($this->input->post('statusPart', TRUE)),
             'verifyTemuan' => '4',
         ];

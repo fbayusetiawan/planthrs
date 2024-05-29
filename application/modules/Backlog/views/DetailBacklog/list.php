@@ -27,12 +27,8 @@ $no = '1';
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Foto</th>
-                            <th>Problem</th>
-                            <!-- <th>Part Number</th> -->
-                            <th>Material</th>
-                            <th>Part No</th>
-                            <th>Part Desc</th>
+                            <th>Part Number</th>
+                            <th>Part Description</th>
                             <th>Qty Req</th>
                             <th>Price</th>
                             <th>Plan Repair</th>
@@ -48,24 +44,19 @@ $no = '1';
                         <?php foreach ($data as $row) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td>
-                                    <a href="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" target="_blank"><img src="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" width="80px" alt=""></a>
-                                </td>
-                                <td><?= $row->problemDesc  ?></td>
-                                <td><?= $row->material  ?></td>
                                 <td><?= $row->partNumber  ?></td>
                                 <td><?= $row->partDescription  ?></td>
+                                <td><?= $row->qtyReq  ?></td>
                                 <?php
                                 $total = $row->qtyReq * $row->price;
                                 ?>
-                                <td><?= $row->qtyReq  ?></td>
                                 <td>Rp.<?= number_format($total, 0, ",", ".");  ?></td>
-
                                 <?php if ($row->planRepair == '0000-00-00') : ?>
                                     <td>-</td>
                                 <?php else : ?>
-                                    <td><?= tgl_indo($row->planRepair)  ?></td>
+                                    <td><?= tgl_indo($row->planRepair) ?></td>
                                 <?php endif ?>
+
                                 <td><?= fd_statusPart($row->statusPart)  ?></td>
                                 <td><?= fd_statusVerif($row->verifyTemuan)  ?></td>
                                 <td><b><?= $row->nrp  ?></b><br>

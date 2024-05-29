@@ -26,6 +26,7 @@ $no = '1';
                             <th>Part Description</th>
                             <th>Qty Req</th>
                             <th>Price</th>
+                            <th>Plan Repair</th>
                             <th>Status</th>
                             <th>Status Verify</th>
                             <th>Report By</th>
@@ -45,6 +46,11 @@ $no = '1';
                                 $total = $row->qtyReq * $row->price;
                                 ?>
                                 <td>Rp.<?= number_format($total, 0, ",", ".");  ?></td>
+                                <?php if ($row->planRepair == '0000-00-00') : ?>
+                                    <td>-</td>
+                                <?php else : ?>
+                                    <td><?= tgl_indo($row->planRepair) ?></td>
+                                <?php endif ?>
                                 <td><?= fd_statusPart($row->statusPart)  ?></td>
                                 <td><?= fd_statusVerif($row->verifyTemuan)  ?></td>
                                 <td><b><?= $row->nrp  ?></b><br>

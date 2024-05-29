@@ -61,8 +61,8 @@ class DetailBacklog extends CI_Controller
 
     function addPart()
     {
-        $data['title'] = "Verifikasi Group Leader";
-        $data['pageTitle'] = "Verifikasi Group Leader";
+        $data['title'] = "Tambah Part";
+        $data['pageTitle'] = "Tambah Part";
         $id = $this->uri->segment(4);
         $data['row'] = $this->primaryModel->getDataByPart($id);
         $this->template->load('template', $this->vn . '/addPart', $data);
@@ -128,7 +128,7 @@ class DetailBacklog extends CI_Controller
     function editAction()
     {
         $id = $this->uri->segment(4);
-        $this->primaryModel->update($id, $this->upload_foto());
+        $this->primaryModel->update($id);
         redirect('Backlog/' . $this->vn);
     }
 

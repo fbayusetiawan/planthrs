@@ -22,15 +22,7 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                     <input type="date" class="form-control" value="<?= $row->tglTemuan ?>" name="tglTemuan" hidden>
                     <input type="text" class="form-control" value="<?= $row->fotoTemuan ?>" name="fotoTemuan" hidden>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">Problem Description</label>
-                        <textarea class="form-control" rows="5" name="problemDesc" required><?= $row->problemDesc ?></textarea>
-                        <div class="invalid-feedback">
-                            Harus diisi!
-                        </div>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label>Pilih Part Number <small>material - part number - part desc - mnemonic</small></label>
+                        <label>Pilih Part Number <small>material - part number - part desc - mnemonic</small> <span class="text-danger font-weight-bold font-size-13">*</span></label>
                         <input list="datalistOptions1" name="idPart" required class="form-control" id="idPart" onkeyup="getpart()" data-placeholder="">
                         <datalist id="datalistOptions1">
                             <option></option>
@@ -43,7 +35,6 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">Part</label>
                         <div class="row">
                             <div class="col-4">
                                 <label for="validationCustom01">Material</label>
@@ -61,21 +52,21 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">Qty Req</label>
+                        <label for="validationCustom01">Qty Req <span class="text-danger font-weight-bold font-size-13">*</span></label>
                         <input type="text" class="form-control" name="qtyReq">
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">Plan Repair</label>
+                        <label for="validationCustom01">Plan Repair <span class="text-danger font-weight-bold font-size-13">*</span></label>
                         <input type="date" class="form-control" name="planRepair">
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">Status Part</label>
+                        <label for="validationCustom01">Status Part <span class="text-danger font-weight-bold font-size-13">*</span></label>
                         <?= form_dropdown('statusPart', fd_statusPart(), '', 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!

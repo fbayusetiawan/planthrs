@@ -91,9 +91,6 @@ class DetailPart_m extends CI_Model
     function updatePlanner($Value)
     {
         $object = [
-            'idPart' => htmlspecialchars($this->input->post('idPart', TRUE)),
-            'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
-            'planRepair' => htmlspecialchars($this->input->post('planRepair', TRUE)),
             'statusPart' => htmlspecialchars($this->input->post('statusPart', TRUE)),
             'verifyTemuan' => '4',
         ];
