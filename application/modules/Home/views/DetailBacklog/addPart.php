@@ -16,18 +16,11 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
-                <form action="<?= base_url($linkin . '/addAction') ?>" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
-                    <input type="idKaryawan" name="<?= $this->session->userdata("idKaryawan") ?>" id="" hidden>
-                    <input type="text" class="form-control nip" name="<?= $this->session->userdata("nrp") ?>" hidden>
-                    <div class="form-group mb-3">
-                        <label for="validationCustom01">Nama Karyawan</label>
-                        <input type="text" class="form-control nip" value="<?= $this->session->userdata("namaKaryawan") ?>" disabled>
-                        <div class="invalid-feedback">
-                            Harus diisi!
-                        </div>
-                    </div>
-                    <input type="text" class="form-control nip" value="<?= $this->session->userdata("idSection") ?>" name="idSection" hidden>
-
+                <form action="<?= base_url($linkin . '/addPartAction') ?>" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+                    <input type="text" class="form-control" value="<?= $row->nrp ?>" name="nrp" hidden>
+                    <input type="text" class="form-control" value="<?= $row->idBacklog ?>" name="idBacklog" hidden>
+                    <input type="date" class="form-control" value="<?= $row->tglTemuan ?>" name="tglTemuan" hidden>
+                    <input type="text" class="form-control" value="<?= $row->fotoTemuan ?>" name="fotoTemuan" hidden>
                     <div class="form-group mb-3">
                         <label>Pilih Part Number <small>material - part number - part desc - mnemonic</small> <span class="text-danger font-weight-bold font-size-13">*</span></label>
                         <input list="datalistOptions1" name="idPart" required class="form-control" id="idPart" onkeyup="getpart()" data-placeholder="">
@@ -59,15 +52,14 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <div class="row">
-                            <div class="col-12">
-                                <label for="validationCustom01">Qty Req <span class="text-danger font-weight-bold font-size-13">*</span></label>
-                                <input type="text" class="form-control nip" name="qtyReq" required>
-                            </div>
-                            
+                        <label for="validationCustom01">Qty Req <span class="text-danger font-weight-bold font-size-13">*</span></label>
+                        <input type="text" class="form-control" name="qtyReq">
+                        <div class="invalid-feedback">
+                            Harus diisi!
                         </div>
                     </div>
                     <button class="btn-sm btn btn-primary" type="submit">Simpan</button>
+                    <a href="<?= base_url($linkin) ?>" class="btn btn-sm btn-danger">Kembali</a>
                 </form>
 
             </div> <!-- end card-body-->

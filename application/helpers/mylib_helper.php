@@ -261,7 +261,7 @@ function popunit()
     $ci->db->join('unit_manufacture', 'unit_manufacture.idUnitManufacture = popunit.idUnitManufacture', 'left');
     $ci->db->join('section', 'section.idSection = popunit.idSection', 'left');
     $ci->db->join('unit_model', 'unit_model.idUnitModel = popunit.idUnitModel', 'left');
-    // $ci->db->where('idPopunit', 'Asc');
+    $ci->db->order_by('popunit.idSection', 'Asc');
     $data = $ci->db->get('popunit')->result();
     return $data;
 }

@@ -82,7 +82,7 @@
 
                     <div class="row mt-3">
                         <div class="col-12 text-center">
-                            <p class="text-muted">Don't have an account? <a href="<?= base_url('Auth/Register') ?>" class="text-success font-weight-bold ml-1">Sign Up</a></p>
+                            <!-- <p class="text-muted">Don't have an account? <a href="<?= base_url('Auth/Register') ?>" class="text-success font-weight-bold ml-1">Sign Up</a></p> -->
                         </div> <!-- end col -->
                     </div>
                     <!-- end row -->

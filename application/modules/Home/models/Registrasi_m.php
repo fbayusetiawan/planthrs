@@ -23,7 +23,7 @@ class Registrasi_m extends CI_Model
         return $this->db->get($this->namaTable)->row();
     }
 
-    function save()
+    function save($fotoTemuan)
     {
         $object = [
             'idBacklog' => uniqid(),
@@ -31,7 +31,9 @@ class Registrasi_m extends CI_Model
             'tanggalTemuan' => htmlspecialchars($this->input->post('tanggalTemuan', TRUE)),
             'codeUnit' => htmlspecialchars($this->input->post('codeUnit', TRUE)),
             'hmUnit' => htmlspecialchars($this->input->post('hmUnit', TRUE)),
+            'problemBacklog' => htmlspecialchars($this->input->post('problemBacklog', TRUE)),
             'statusBacklog' => '1',
+            'fotoTemuan' => $fotoTemuan,
         ];
         $this->db->insert($this->namaTable, $object);
         $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Disimpan</div>');

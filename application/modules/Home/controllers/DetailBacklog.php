@@ -38,7 +38,6 @@ class DetailBacklog extends CI_Controller
 
     function addTemuan()
     {
-
         $array = array(
             'idBacklog' => $this->uri->segment(4),
             'codeUnit' => $this->uri->segment(5)
@@ -60,6 +59,21 @@ class DetailBacklog extends CI_Controller
             $data['row'] = $cek;
             $data['data'] = $this->primaryModel->getAllData();
             $this->template->load('home', $this->vn . '/add', $data);
+        endif;
+    }
+
+    function addPart()
+    {
+        $this->db->where('nrp', $this->session->userdata('nrp'));
+        $cek = $this->db->get('karyawan')->row();
+        if ($cek->verifKaryawan == '0') :
+            redirect('Home/Pengaturan/setup');
+        else :
+            $data['title'] = "Tambah Part";
+            $data['row'] = $cek;
+            $id = $this->uri->segment(4);
+            $data['row'] = $this->primaryModel->getDataByPart($id);
+            $this->template->load('home', $this->vn . '/addPart', $data);
         endif;
     }
 
@@ -88,6 +102,12 @@ class DetailBacklog extends CI_Controller
     {
         $id = $this->uri->segment(4);
         $this->primaryModel->update($id, $this->upload_foto());
+        redirect('Home/' . $this->vn);
+    }
+
+    function addPartAction()
+    {
+        $this->primaryModel->savePart();
         redirect('Home/' . $this->vn);
     }
 
@@ -120,6 +140,31 @@ class DetailBacklog extends CI_Controller
             echo "<span class='text-success'>Tersedia</span>";
         else :
             echo "<span class='text-danger'>Tidak Tersedia</span>";
+        endif;
+    }
+
+    function ajaxpart()
+    {
+        $idPart = $_GET['idPart'];
+        $this->db->where('idPart', $idPart);
+        // $this->db->join('detail_backlog', 'detail_backlog.idPart = soh.idPart', 'left');
+        $row = $this->db->get('soh')->row();
+        if (empty($row->idPart)) :
+            $data = [
+                'material' => 'Data Material Tidak ditemukan',
+                'partNumber' => 'Data Part Tidak ditemukan',
+                'partDescription' => 'Data Deskripsi Tidak ditemukan',
+                'price' => 'Data Price Tidak ditemukan',
+            ];
+            echo json_encode($data);
+        else :
+            $data = [
+                'material' => $row->material,
+                'partNumber' => $row->partNumber,
+                'partDescription' => $row->partDescription,
+                'price' => $row->price,
+            ];
+            echo json_encode($data);
         endif;
     }
 }
