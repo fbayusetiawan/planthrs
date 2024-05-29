@@ -11,6 +11,18 @@ class Registrasi_m extends CI_Model
     function getAllData()
     {
         $this->db->where('backlog1.idSection', $this->session->userdata('idSection'));
+        $this->db->where('statusBacklog', '1');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('popunit', 'popunit.codeUnit = ' . $this->namaTable . '.codeUnit', 'left');
+            
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getAllDataClose()
+    {
+        $this->db->where('backlog1.idSection', $this->session->userdata('idSection'));
+        $this->db->where('statusBacklog', '2');
+        
         $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
         $this->db->join('popunit', 'popunit.codeUnit = ' . $this->namaTable . '.codeUnit', 'left');
             
@@ -43,33 +55,23 @@ class Registrasi_m extends CI_Model
     {
         if (empty($fotoTemuan)) {
             $object = [
-                'nrp' => $this->session->userdata('nrp'),
-                'idSection' => htmlspecialchars($this->input->post('idSection', TRUE)),
-                'tanggalBacklog' => htmlspecialchars($this->input->post('tanggalBacklog', TRUE)),
+                'tanggalTemuan' => htmlspecialchars($this->input->post('tanggalTemuan', TRUE)),
                 'codeUnit' => htmlspecialchars($this->input->post('codeUnit', TRUE)),
                 'hmUnit' => htmlspecialchars($this->input->post('hmUnit', TRUE)),
-                'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
-                'sumberTemuan' => htmlspecialchars($this->input->post('sumberTemuan', TRUE)),
-                'problemDescription' => htmlspecialchars($this->input->post('problemDescription', TRUE)),
-                'partNumber' => htmlspecialchars($this->input->post('partNumber', TRUE)),
+                'problemBacklog' => htmlspecialchars($this->input->post('problemBacklog', TRUE)),
             ];
         } else {
             $object = [
-                'nrp' => $this->session->userdata('nrp'),
-                'idSection' => htmlspecialchars($this->input->post('idSection', TRUE)),
-                'tanggalBacklog' => htmlspecialchars($this->input->post('tanggalBacklog', TRUE)),
+                'tanggalTemuan' => htmlspecialchars($this->input->post('tanggalTemuan', TRUE)),
                 'codeUnit' => htmlspecialchars($this->input->post('codeUnit', TRUE)),
-                'qtyReq' => htmlspecialchars($this->input->post('qtyReq', TRUE)),
                 'hmUnit' => htmlspecialchars($this->input->post('hmUnit', TRUE)),
-                'sumberTemuan' => htmlspecialchars($this->input->post('sumberTemuan', TRUE)),
-                'problemDescription' => htmlspecialchars($this->input->post('problemDescription', TRUE)),
-                'partNumber' => htmlspecialchars($this->input->post('partNumber', TRUE)),
+                'problemBacklog' => htmlspecialchars($this->input->post('problemBacklog', TRUE)),
                 'fotoTemuan' => $fotoTemuan,
             ];
         }
         $this->db->where($this->pk, $Value);
         $this->db->update($this->namaTable, $object);
-        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Di Ubah</div>');
+        $this->session->set_flashdata('message', '<div class="alert alert-success" role="alert">Data Berhasil Diubah</div>');
     }
 
     function delete($Value)

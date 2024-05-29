@@ -53,9 +53,10 @@ $no = '1';
                                     <div class="btn-group mb-0">
                                         <a href="<?= base_url($linkin . '/addPart/' . $row->idDetailBacklog) ?>" class="btn btn-secondary btn-sm" data-toggle="tooltip" title="Add Part"><i class="uil uil-check-square"></i> Add Part</a>
                                         <a href="<?= base_url($linkin . '/edit/' . $row->idDetailBacklog) ?>" class="btn btn-info btn-sm" data-toggle="tooltip" title="Edit"><i class="uil uil-edit"></i> Edit</a>
-                                        <a href="<?= base_url($linkin . '/delete/' . $row->idDetailBacklog) ?>" id="<?= $row->problemDesc ?>" class="delete-data btn btn-danger btn-sm" data-toggle="tooltip" title="Hapus"><i class="uil uil-trash-alt"></i> Hapus</a>
+                                        <a href="<?= base_url($linkin . '/delete/' . $row->idDetailBacklog) ?>" class="delete-data btn btn-danger btn-sm" data-toggle="tooltip" title="Hapus"><i class="uil uil-trash-alt"></i> Hapus</a>
                                     </div>
                                 </td>
+
                             </tr>
                         <?php endforeach ?>
                     </tbody>

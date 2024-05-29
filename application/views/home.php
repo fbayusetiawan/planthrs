@@ -145,10 +145,10 @@
 
                                     <ul class="nav-second-level" aria-expanded="false">
                                         <li>
-                                            <a href="<?= base_url('Home/Registrasi/Add') ?>">Form Registrasi</a>
+                                            <a href="<?= base_url('Home/Registrasi') ?>">Open</a>
                                         </li>
                                         <li>
-                                            <a href="<?= base_url('Home/Registrasi') ?>">Data Backlog</a>
+                                            <a href="<?= base_url('Home/Registrasi/Close') ?>">Close</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -241,24 +241,7 @@
                 beforeShowDay: NotBeforeToday
             });
         })
-        $('.delete-data').on('click', function(e) {
-            e.preventDefault();
-            const href = $(this).attr('href');
-            const na = $(this).attr('id');
-            swal({
-                title: 'Apakah Anda Yakin?',
-                text: "Semua Data Yang Berhubungan Dengan " + na + " Akan Di Hapus...",
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Hapus'
-            }).then((result) => {
-                if (result.value) {
-                    document.location.href = href;
-                }
-            })
-        });
+        
     </script>
     <script>
         var tw = new Date();

@@ -22,10 +22,24 @@ class Registrasi extends CI_Controller
         if ($cek->verifKaryawan == '0') :
             redirect('Home/Pengaturan/setup');
         else :
-            $data['title'] = "Form Backlog";
+            $data['title'] = "Backlog Open";
             $data['row'] = $cek;
             $data['data'] = $this->primaryModel->getAllData();
             $this->template->load('home', $this->vn . '/list', $data);
+        endif;
+    }
+
+    public function close()
+    {
+        $this->db->where('nrp', $this->session->userdata('nrp'));
+        $cek = $this->db->get('karyawan')->row();
+        if ($cek->verifKaryawan == '0') :
+            redirect('Home/Pengaturan/setup');
+        else :
+            $data['title'] = "Backlog Close";
+            $data['row'] = $cek;
+            $data['data'] = $this->primaryModel->getAllDataClose();
+            $this->template->load('home', $this->vn . '/close', $data);
         endif;
     }
 
