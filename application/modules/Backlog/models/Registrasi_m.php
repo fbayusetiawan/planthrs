@@ -10,6 +10,18 @@ class Registrasi_m extends CI_Model
 
     function getAllData()
     {
+        $this->db->where('statusBacklog', '1');
+        $this->db->join('popunit', 'popunit.codeUnit = ' . $this->namaTable . '.codeUnit', 'left');
+        $this->db->join('unit_model', 'unit_model.idUnitModel = popunit.idUnitModel', 'left');
+        $this->db->join('unit_type', 'unit_type.idUnitType = popunit.idUnitType', 'left');
+        $this->db->join('unit_manufacture', 'unit_manufacture.idUnitManufacture = popunit.idUnitManufacture', 'left');
+        $this->db->join('unit_activity', 'unit_activity.idUnitActivity = popunit.idUnitActivity', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getAllDataClose()
+    {
+        $this->db->where('statusBacklog', '2');
         $this->db->join('popunit', 'popunit.codeUnit = ' . $this->namaTable . '.codeUnit', 'left');
         $this->db->join('unit_model', 'unit_model.idUnitModel = popunit.idUnitModel', 'left');
         $this->db->join('unit_type', 'unit_type.idUnitType = popunit.idUnitType', 'left');

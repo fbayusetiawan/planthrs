@@ -317,6 +317,19 @@ function fd_temuan($val = null)
     endif;
 }
 
+function fd_poh($val = null)
+{
+    $option = [
+        'Lokal' => 'Lokal',
+        'Non-Lokal' => 'Non-Lokal',
+    ];
+    if (empty($val)) :
+        return $option;
+    else :
+        return $option[$val];
+    endif;
+}
+
 function fd_agama($val = null)
 {
     $option = [

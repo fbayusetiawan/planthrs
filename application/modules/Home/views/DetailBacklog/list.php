@@ -6,8 +6,10 @@ $no = '1';
     <div class="col-md-12">
         <nav aria-label="breadcrumb" class="float-right mt-1">
             <ol class="breadcrumb">
-                <!-- <li><a href="<?= base_url($linkin . '/add') ?>" class="btn btn-primary btn-sm">Tambah Data Part</a></li> -->
-                <li><a href="<?= base_url('Home/Registrasi') ?>" class="btn btn-sm btn-danger">Kembali</a></li>
+                <div class="button-list">
+                    <a href="<?= base_url($linkin . '/add') ?>"><button type="button" class="btn btn-primary">Tambah Data</button></a>
+                    <a href="<?= base_url('Home/Registrasi') ?>"><button type="button" class="btn btn-danger">Kembali</button></a>
+                </div>
             </ol>
         </nav>
         <h4 class="mb-1 mt-0">Data <?= $title ?></h4>
@@ -57,7 +59,7 @@ $no = '1';
                                     <?= $row->namaKaryawan  ?></td>
                                 <td class="text-center">
                                     <div class="btn-group mb-0">
-                                        <a href="<?= base_url($linkin . '/addPart/' . $row->idDetailBacklog) ?>" class="btn btn-secondary btn-sm" data-toggle="tooltip" title="Add Part"><i class="uil uil-check-square"></i> Add Part</a>
+                                        <!-- <a href="<?= base_url($linkin . '/addPart/' . $row->idDetailBacklog) ?>" class="btn btn-secondary btn-sm" data-toggle="tooltip" title="Add Part"><i class="uil uil-check-square"></i> Add Part</a> -->
                                         <a href="<?= base_url($linkin . '/edit/' . $row->idDetailBacklog) ?>" class="btn btn-info btn-sm" data-toggle="tooltip" title="Edit"><i class="uil uil-edit"></i> Edit</a>
                                         <a href="<?= base_url($linkin . '/delete/' . $row->idDetailBacklog) ?>" class="delete-data btn btn-danger btn-sm" data-toggle="tooltip" title="Hapus"><i class="uil uil-trash-alt"></i> Hapus</a>
                                     </div>

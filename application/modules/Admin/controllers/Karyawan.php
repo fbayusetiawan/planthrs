@@ -168,6 +168,7 @@ class Karyawan extends CI_Controller
                     'targetTsr' => $row['L'],
                     'hireDate' => $row['M'],
                     'alamat' => $row['N'],
+                    'statusKaryawan' => $row['O'],
                 ));
             }
 

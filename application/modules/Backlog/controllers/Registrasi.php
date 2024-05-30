@@ -23,6 +23,15 @@ class Registrasi extends CI_Controller
         $this->template->load('template', $this->vn . '/list', $data);
     }
 
+    public function close()
+    {
+        $data['title'] = $this->titles;
+        $data['pageTitle'] = "Data " . $this->titles;
+        $data['data'] = $this->primaryModel->getAllDataClose();
+
+        $this->template->load('template', $this->vn . '/close', $data);
+    }
+
     public function detail()
     {
         $data['row'] =  $this->primaryModel->getDataById($this->uri->segment(4));

@@ -6,7 +6,10 @@ $no = '1';
     <div class="col-md-12">
         <nav aria-label="breadcrumb" class="float-right mt-1">
             <ol class="breadcrumb">
-                <li><a href="<?= base_url($linkin . '/add') ?>" class="btn btn-success btn-sm">Tambah Data</a></li>
+                <div class="button-list">
+                    <a href="<?= base_url($linkin . '/add') ?>"><button type="button" class="btn btn-success">Tambah Data</button></a>
+                    <!-- <a href="<?= base_url('Home/Registrasi') ?>"><button type="button" class="btn btn-danger">Kembali</button></a> -->
+                </div>
             </ol>
         </nav>
         <h4 class="mb-1 mt-0">Data <?= $title ?></h4>

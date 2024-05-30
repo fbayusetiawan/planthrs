@@ -44,56 +44,32 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Status Karyawan</label>
-                        <?= form_dropdown('statusKaryawan', fd_karyawan(), '', 'class="form-control" id="kerja" onchange="getKerja()"') ?>
+                        <?= form_dropdown('statusKaryawan', fd_karyawan(), $row->statusKaryawan, 'class="form-control" id="kerja" onchange="getKerja()"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Jenis Status Karyawan </label>
-                        <?= form_dropdown('employeeType', fd_statusEmployee(), '', 'class="form-control"') ?>
+                        <?= form_dropdown('employeeType', fd_statusEmployee(), $row->employeeType, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Jenis Kelamin </label>
-                        <?= form_dropdown('jk', fd_jk(), '', 'class="form-control"') ?>
+                        <?= form_dropdown('jk', fd_jk(), $row->jk, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
                     <div class="form-group mb-3">
-                        <label for="validationCustom01">Penempatan/POH</label>
-                        <input type="text" class="form-control" value="<?= $row->poh ?>" name="poh" required>
+                        <label for="validationCustom01">POH</label>
+                        <?= form_dropdown('poh', fd_poh(), $row->poh, 'class="form-control"') ?>
                         <div class="invalid-feedback">
                             Harus diisi!
                         </div>
                     </div>
-                    <!-- <div class="form-group mb-3">
-                        <label for="validationCustom01">Jabatan</label>
-                        <select name="idJabatan" required class="form-control">
-                            <option value="">Pilih Jabatan</option>
-                            <?php foreach (callTable('jabatan')->result() as $jabatan) : ?>
-                                <option value="<?= $jabatan->idJabatan ?>"><?= $jabatan->namaJabatan ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback">
-                            Harus dipilih!
-                        </div>
-                    </div> -->
-                    <!-- <div class="form-group mb-3">
-                        <label for="validationCustom01">Site</label>
-                        <select name="idSite" required class="form-control">
-                            <option value="">Pilih Site</option>
-                            <?php foreach (callTable('site')->result() as $site) : ?>
-                                <option value="<?= $site->idSite ?>"><?= $site->namaSite ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback">
-                            Harus dipilih!
-                        </div>
-                    </div> -->
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Golongan</label>
                         <select name="idGolongan" required class="form-control">
@@ -106,18 +82,6 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             Harus dipilih!
                         </div>
                     </div>
-                    <!-- <div class="form-group mb-3">
-                        <label for="validationCustom01">Section</label>
-                        <select name="idSection" required class="form-control">
-                            <option value="">Pilih Section</option>
-                            <?php foreach (callTable('section')->result() as $section) : ?>
-                                <option value="<?= $section->idSection ?>"><?= $section->namaSection ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="invalid-feedback">
-                            Harus dipilih!
-                        </div>
-                    </div> -->
                     <div class="form-group mb-3">
                         <label for="validationCustom01">Alamat</label>
                         <input type="text" class="form-control" value="<?= $row->alamat ?>" name="alamat" required>

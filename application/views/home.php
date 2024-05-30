@@ -129,6 +129,13 @@
                                         <span> Home </span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="<?= base_url('Home/Popunit') ?>">
+                                        <i data-feather="truck"></i>
+                                        <span class="badge badge-success float-right">1</span>
+                                        <span> Populasi Unit </span>
+                                    </a>
+                                </li>
                                 <!-- <li>
                                     <a href="<?= base_url('Home/Tsr') ?>">
                                         <i data-feather="truck"></i>

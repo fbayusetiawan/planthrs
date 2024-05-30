@@ -10,6 +10,16 @@ class DetailBacklog_m extends CI_Model
 
     function getAllData()
     {
+        $this->db->where('idBacklog', $this->session->userdata('idBacklog'));        
+        $this->db->join('karyawan', 'karyawan.nrp = detail_backlog.nrp', 'left');
+        // $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getAllDataClose()
+    {
         $this->db->where('idBacklog', $this->session->userdata('idBacklog'));
         $this->db->join('karyawan', 'karyawan.nrp = detail_backlog.nrp', 'left');
         // $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');

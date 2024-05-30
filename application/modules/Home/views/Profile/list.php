@@ -13,7 +13,13 @@
         <div class="card">
             <div class="card-body">
                 <div class="text-center mt-3">
-                    <img src="<?= base_url() ?>/upload/fotokaryawan/<?= $this->session->userdata('foto'); ?>" alt="" class="avatar-lg rounded-circle" />
+                    <!-- <img src="<?= base_url() ?>/upload/fotokaryawan/<?= $this->session->userdata('foto'); ?>" alt="Shreyu" class="card-img-top"> -->
+                    <div class="col-md">
+                        <img src="<?= base_url() ?>/upload/fotokaryawan/<?= $this->session->userdata('foto'); ?>" class="img-fluid" alt="Responsive image">
+                    </div>
+                    
+                    <!-- <img src="" height="300" width="100%" alt="..."> -->
+                    <!-- <img src="" alt="" class="avatar-lg rounded-circle" /> -->
                     <h5 class="mt-2 mb-0"><?= ucwords($this->session->userdata("namaKaryawan")) ?></h5>
                     <h6 class="text-muted font-weight-normal mt-2 mb-0"><?= $this->session->userdata("nrp") ?></h6>
                     <h6></h6>

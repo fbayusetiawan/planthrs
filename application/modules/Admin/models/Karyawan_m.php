@@ -10,6 +10,8 @@ class Karyawan_m extends CI_Model
 
     function getAllData()
     {
+        // $this->db->where('karyawan.idSection', '5');
+        
         $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
         $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
         $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');

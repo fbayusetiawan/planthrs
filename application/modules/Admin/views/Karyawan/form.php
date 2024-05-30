@@ -1,7 +1,7 @@
 <script>
 
 </script>
-<h3>Form Import Data Judul</h3>
+<h3>Form Import Data Karyawan</h3>
 <hr>
 
 <a href="<?php echo base_url("assets/excel/format.xlsx"); ?>">Download Format</a>
@@ -56,6 +56,7 @@ if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
       <th>TSR</th>
       <th>HIRE DATE</th>
       <th>ALAMAT</th>
+      <th>STATUS</th>
     </tr>";
 
     $numrow = 1;
@@ -80,9 +81,10 @@ if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
         $targetTsr = $row['L'];
         $hireDate = $row['M'];
         $alamat = $row['N'];
+        $statusKaryawan = $row['O'];
 
         // Cek jika semua data tidak diisi
-        if ($nrp == "" && $namaKaryawan == "" && $idSite == "" && $idKaryawan == "" && $idSection == "" && $idJabatan == "" && $username == "" && $password == "" && $verifKaryawan == "" && $foto == "" && $roleId == "" && $isActive == "" && $targetTsr == "" && $hireDate == "" && $alamat == "")
+        if ($nrp == "" && $namaKaryawan == "" && $idSite == "" && $idKaryawan == "" && $idSection == "" && $idJabatan == "" && $username == "" && $password == "" && $verifKaryawan == "" && $foto == "" && $roleId == "" && $isActive == "" && $targetTsr == "" && $hireDate == "" && $alamat == ""&& $statusKaryawan == "")
             continue; // Lewat data pada baris ini (masuk ke looping selanjutnya / baris selanjutnya)
 
         // Cek $numrow apakah lebih dari 1
@@ -104,9 +106,10 @@ if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
             $targetTsr_td = (!empty($targetTsr)) ? "" : " style='background: #E07171;'"; 
             $hireDate_td = (!empty($hireDate)) ? "" : " style='background: #E07171;'"; 
             $alamat_td = (!empty($alamat)) ? "" : " style='background: #E07171;'"; 
+            $statusKaryawan_td = (!empty($statusKaryawan)) ? "" : " style='background: #E07171;'"; 
 
             // Jika salah satu data ada yang kosong
-            if ($nrp == "" or $namaKaryawan == "" or $idSite == "" or $idKaryawan == "" or $idSection =="" or $idJabatan =="" or $username =="" or $password =="" or $verifKaryawan =="" or $foto =="" or $roleId =="" or $isActive =="" or $targetTsr =="" or $hireDate =="" or $alamat == "") {
+            if ($nrp == "" or $namaKaryawan == "" or $idSite == "" or $idKaryawan == "" or $idSection =="" or $idJabatan =="" or $username =="" or $password =="" or $verifKaryawan =="" or $foto =="" or $roleId =="" or $isActive =="" or $targetTsr =="" or $hireDate =="" or $alamat == ""or $statusKaryawan == "") {
                 $kosong++; // Tambah 1 variabel $kosong
             }
 
@@ -125,6 +128,7 @@ if (isset($_POST['preview'])) { // Jika user menekan tombol Preview pada form
             echo "<td" . $targetTsr_td . ">" . $targetTsr . "</td>";
             echo "<td" . $hireDate_td . ">" . $hireDate . "</td>";
             echo "<td" . $alamat_td . ">" . $alamat . "</td>";
+            echo "<td" . $statusKaryawan_td . ">" . $statusKaryawan . "</td>";
             echo "</tr>";
         }
 
