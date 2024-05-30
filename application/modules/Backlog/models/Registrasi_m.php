@@ -72,6 +72,7 @@ class Registrasi_m extends CI_Model
             'woNumber' => htmlspecialchars($this->input->post('woNumber', TRUE)),
             'noReservasi' => htmlspecialchars($this->input->post('noReservasi', TRUE)),
             'statusBacklog' => htmlspecialchars($this->input->post('statusBacklog', TRUE)),
+            'rating' => htmlspecialchars($this->input->post('rating', TRUE)),
         ];
         $this->db->where($this->pk, $Value);
         $this->db->update($this->namaTable, $object);

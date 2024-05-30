@@ -330,6 +330,21 @@ function fd_poh($val = null)
     endif;
 }
 
+function fd_rating($val = null)
+{
+    $option = [
+        '1' => '<span class="badge badge-success">Normal</span>',
+        '2' => '<span class="badge badge-warning">Caution</span>',
+        '3' => '<span class="badge badge-danger">Danger</span>',
+        '4' => '<span class="badge badge-secondary">Critical</span>',
+    ];
+    if (empty($val)) :
+        return $option;
+    else :
+        return $option[$val];
+    endif;
+}
+
 function fd_agama($val = null)
 {
     $option = [

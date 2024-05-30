@@ -18,6 +18,74 @@ class Karyawan_m extends CI_Model
         return $this->db->get($this->namaTable)->result();
     }
 
+    function getDataStaff()
+    {
+        $this->db->where('statusKaryawan', '1');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getDataTrack()
+    {
+        $this->db->where('karyawan.idSection', '1');
+        $this->db->where('karyawan.idJabatan', '5');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getDataSmall()
+    {
+        $this->db->where('karyawan.idSection', '2');
+        $this->db->where('karyawan.idJabatan', '5');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getDataBig()
+    {
+        $this->db->where('karyawan.idSection', '3');
+        $this->db->where('karyawan.idJabatan', '5');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getDataSse()
+    {
+        $this->db->where('karyawan.idSection', '4');
+        $this->db->where('karyawan.idJabatan', '5');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getDataTyre()
+    {
+        $this->db->where('karyawan.idSection', '6');
+        $this->db->where('karyawan.idJabatan', '6');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
+    function getDataAdmin()
+    {
+        $this->db->where('karyawan.idJabatan', '4');
+        $this->db->join('section', 'section.idSection = ' . $this->namaTable . '.idSection', 'left');
+        $this->db->join('jabatan', 'jabatan.idJabatan = ' . $this->namaTable . '.idJabatan', 'left');
+        $this->db->join('golongan', 'golongan.idGolongan = ' . $this->namaTable . '.idGolongan', 'left');
+        return $this->db->get($this->namaTable)->result();
+    }
+
     function getDataById($Value)
     {
         $this->db->where($this->pk, $Value);

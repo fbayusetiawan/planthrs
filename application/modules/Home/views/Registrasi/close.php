@@ -22,6 +22,7 @@ $no = '1';
                         <tr>
                             <th>No</th>
                             <th>Code Unit</th>
+                            <th>Rating</th>
                             <th>Tanggal</th>
                             <th>Foto</th>
                             <th>Problem</th>
@@ -37,6 +38,7 @@ $no = '1';
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><b><a href="<?= base_url($linkin . '/addTemuan/' . $row->idBacklog . '/' . $row->codeUnit) ?>"><?= $row->codeUnit  ?></a></b></td>
+                                <td><?= fd_rating($row->rating)  ?></td>
                                 <td><?= tgl_indo($row->tanggalTemuan)  ?></td>
                                 <td>
                                     <a href="#m_fotoTemuan" data-toogle="modal"><img src="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" width="80px" alt=""></a>

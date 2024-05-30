@@ -50,7 +50,14 @@ $id = uniqid()
                 </div>
                 <div class="form-group mb-3">
                     <label for="validationCustom01">Status Backlog</label>
-                    <?= form_dropdown('statusBacklog', fd_statusBacklog(), '', 'class="form-control"') ?>
+                    <?= form_dropdown('statusBacklog', fd_statusBacklog(), $row->statusBacklog, 'class="form-control"') ?>
+                    <div class="invalid-feedback">
+                        Harus diisi!
+                    </div>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="validationCustom01">Rating</label>
+                    <?= form_dropdown('rating', fd_rating(), $row->rating, 'class="form-control"') ?>
                     <div class="invalid-feedback">
                         Harus diisi!
                     </div>

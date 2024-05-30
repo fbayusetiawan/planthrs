@@ -115,6 +115,50 @@ $no = '1';
 
     <div class="col-md-6 col-xl-3">
         <div class="card">
+            <div class="card-body p-0">
+                <h5 class="card-title header-title border-bottom p-3 mb-0">Cost Backlog</h5>
+                <div class="media px-3 py-4">
+                    <div class="media-body">
+                        <h4 class="mt-0 mb-1 font-size-22 font-weight-normal">Rp.<?= number_format($totalBacklogOpen, 0, ",", "."); ?></h4>
+                        <span class="text-muted">Open</span>
+                    </div>
+                    <i class="icons-large" data-feather="unlock"></i>
+                </div>
+                <div class="media px-3 py-4">
+                    <div class="media-body">
+                        <h4 class="mt-0 mb-1 font-size-22 font-weight-normal">Rp.<?= number_format($totalBacklogClose, 0, ",", "."); ?></h4>
+                        <span class="text-muted">Close</span>
+                    </div>
+                    <i class="icons-large" data-feather="lock"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xl-3">
+        <div class="card">
+            <div class="card-body p-0">
+                <h5 class="card-title header-title border-bottom p-3 mb-0">Outstanding Backlog</h5>
+                <div class="media px-3 py-4">
+                    <div class="media-body">
+                        <h4 class="mt-0 mb-1 font-size-22 font-weight-normal">Rp.<?= number_format($totalPartWaiting, 0, ",", "."); ?></h4>
+                        <span class="text-muted">Waiting Part</span>
+                    </div>
+                    <i class="icons-large" data-feather="unlock"></i>
+                </div>
+                <div class="media px-3 py-4">
+                    <div class="media-body">
+                        <h4 class="mt-0 mb-1 font-size-22 font-weight-normal">Rp.<?= number_format($totalPartReady, 0, ",", "."); ?></h4>
+                        <span class="text-muted">Part Ready</span>
+                    </div>
+                    <i class="icons-large" data-feather="lock"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-md-6 col-xl-3">
+        <div class="card">
             <div class="card-body">
                 <h5 class="card-title header-title border-bottom p-3 mb-0">Outstanding WO Backlog</h5>
                 <br />
@@ -123,7 +167,7 @@ $no = '1';
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
 </div>

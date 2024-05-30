@@ -27,6 +27,7 @@ $no = '1';
                     <thead>
                         <tr>
                             <th>No</th>
+                            <th>Material</th>
                             <th>Part Number</th>
                             <th>Part Description</th>
                             <th>Qty Req</th>
@@ -44,6 +45,7 @@ $no = '1';
                         <?php foreach ($data as $row) : ?>
                             <tr>
                                 <td><?= $no++ ?></td>
+                                <td><?= $row->material  ?></td>
                                 <td><?= $row->partNumber  ?></td>
                                 <td><?= $row->partDescription  ?></td>
                                 <td><?= $row->qtyReq  ?></td>

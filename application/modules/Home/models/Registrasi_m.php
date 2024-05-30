@@ -44,6 +44,7 @@ class Registrasi_m extends CI_Model
             'codeUnit' => htmlspecialchars($this->input->post('codeUnit', TRUE)),
             'hmUnit' => htmlspecialchars($this->input->post('hmUnit', TRUE)),
             'problemBacklog' => htmlspecialchars($this->input->post('problemBacklog', TRUE)),
+            'rating' => htmlspecialchars($this->input->post('rating', TRUE)),
             'statusBacklog' => '1',
             'fotoTemuan' => $fotoTemuan,
         ];
@@ -59,6 +60,7 @@ class Registrasi_m extends CI_Model
                 'codeUnit' => htmlspecialchars($this->input->post('codeUnit', TRUE)),
                 'hmUnit' => htmlspecialchars($this->input->post('hmUnit', TRUE)),
                 'problemBacklog' => htmlspecialchars($this->input->post('problemBacklog', TRUE)),
+                'rating' => htmlspecialchars($this->input->post('rating', TRUE)),
             ];
         } else {
             $object = [
@@ -66,6 +68,7 @@ class Registrasi_m extends CI_Model
                 'codeUnit' => htmlspecialchars($this->input->post('codeUnit', TRUE)),
                 'hmUnit' => htmlspecialchars($this->input->post('hmUnit', TRUE)),
                 'problemBacklog' => htmlspecialchars($this->input->post('problemBacklog', TRUE)),
+                'rating' => htmlspecialchars($this->input->post('rating', TRUE)),
                 'fotoTemuan' => $fotoTemuan,
             ];
         }

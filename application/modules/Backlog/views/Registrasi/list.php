@@ -4,11 +4,11 @@ $no = '1';
 ?>
 <div class="row page-title">
     <div class="col-md-12">
-        <nav aria-label="breadcrumb" class="float-right mt-1">
+        <!-- <nav aria-label="breadcrumb" class="float-right mt-1">
             <ol class="breadcrumb">
                 <li><a href="<?= base_url($linkin . '/add') ?>" class="btn btn-success btn-sm">Tambah Data</a></li>
             </ol>
-        </nav>
+        </nav> -->
         <h4 class="mb-1 mt-0">Data <?= $title ?></h4>
     </div>
 </div>
@@ -22,6 +22,7 @@ $no = '1';
                         <tr>
                             <th>No</th>
                             <th>Code Unit</th>
+                            <th>Rating</th>
                             <th>Tanggal</th>
                             <th>Foto</th>
                             <th>Problem</th>
@@ -39,6 +40,7 @@ $no = '1';
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><b><a href="<?= base_url($linkin . '/addTemuan/' . $row->idBacklog . '/' . $row->codeUnit) ?>"><?= $row->codeUnit  ?></a></b></td>
+                                <td><?= fd_rating($row->rating)  ?></td>
                                 <td><?= tgl_indo($row->tanggalTemuan)  ?></td>
                                 <td>
                                     <a href="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" target="_blank"><img src="<?= base_url('upload/fotoTemuan/' . $row->fotoTemuan) ?>" width="80px" alt=""></a>

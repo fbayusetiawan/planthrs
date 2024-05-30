@@ -109,6 +109,62 @@ class Halamanutama_m extends CI_Model
             return 0;
         }
     }
+
+    function totalBacklogOpen()
+    {
+        $this->db->select_sum('price');
+        $this->db->where('statusBacklog', '1');
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        // $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $query = $this->db->get('detail_backlog');
+        if ($query->num_rows() > 0) {
+            return $query->row()->price;
+        } else {
+            return 0;
+        }
+    }
+
+    function totalBacklogClose()
+    {
+        $this->db->select_sum('price');
+        $this->db->where('statusBacklog', '2');
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        // $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $query = $this->db->get('detail_backlog');
+        if ($query->num_rows() > 0) {
+            return $query->row()->price;
+        } else {
+            return 0;
+        }
+    }
+
+    function totalPartReady()
+    {
+        $this->db->select_sum('price');
+        $this->db->where('statusPart', '5');
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        // $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $query = $this->db->get('detail_backlog');
+        if ($query->num_rows() > 0) {
+            return $query->row()->price;
+        } else {
+            return 0;
+        }
+    }
+
+    function totalPartWaiting()
+    {
+        $this->db->select_sum('price');
+        $this->db->where('statusPart', '2');
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        // $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $query = $this->db->get('detail_backlog');
+        if ($query->num_rows() > 0) {
+            return $query->row()->price;
+        } else {
+            return 0;
+        }
+    }
 }
 
 /* End of file */

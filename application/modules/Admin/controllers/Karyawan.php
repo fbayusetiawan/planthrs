@@ -23,6 +23,69 @@ class Karyawan extends CI_Controller
         $this->template->load('template', $this->vn . '/list', $data);
     }
 
+    public function staff()
+    {
+        $data['title'] = "Karyawan Staff";
+        $data['pageTitle'] = "Karyawan Staff";
+        $data['data'] = $this->primaryModel->getDataStaff();
+
+        $this->template->load('template', $this->vn . '/staff', $data);
+    }
+
+    public function track()
+    {
+        $data['title'] = "Karyawan Track";
+        $data['pageTitle'] = "Karyawan Track";
+        $data['data'] = $this->primaryModel->getDataTrack();
+
+        $this->template->load('template', $this->vn . '/track', $data);
+    }
+
+    public function small()
+    {
+        $data['title'] = "Karyawan Wheel Small";
+        $data['pageTitle'] = "Karyawan Wheel Small";
+        $data['data'] = $this->primaryModel->getDataSmall();
+
+        $this->template->load('template', $this->vn . '/small', $data);
+    }
+
+    public function big()
+    {
+        $data['title'] = "Karyawan Wheel Big";
+        $data['pageTitle'] = "Karyawan Wheel Big";
+        $data['data'] = $this->primaryModel->getDataBig();
+
+        $this->template->load('template', $this->vn . '/big', $data);
+    }
+
+    public function sse()
+    {
+        $data['title'] = "Karyawan SSE + Fabrikasi";
+        $data['pageTitle'] = "Karyawan SSE + Fabrikasi";
+        $data['data'] = $this->primaryModel->getDataSse();
+
+        $this->template->load('template', $this->vn . '/sse', $data);
+    }
+
+    public function tyre()
+    {
+        $data['title'] = "Karyawan Tyre";
+        $data['pageTitle'] = "Karyawan Tyre";
+        $data['data'] = $this->primaryModel->getDataTyre();
+
+        $this->template->load('template', $this->vn . '/tyre', $data);
+    }
+
+    public function admin()
+    {
+        $data['title'] = "Karyawan Admin";
+        $data['pageTitle'] = "Karyawan Admin";
+        $data['data'] = $this->primaryModel->getDataAdmin();
+
+        $this->template->load('template', $this->vn . '/admin', $data);
+    }
+
     public function detail()
     {
         $data['row'] =  $this->primaryModel->getDataById($this->uri->segment(4));

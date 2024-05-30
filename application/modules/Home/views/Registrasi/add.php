@@ -56,6 +56,13 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
                             Harus diisi!
                         </div>
                     </div>
+                    <div class="form-group mb-3">
+                        <label for="validationCustom01">Rating <span class="text-danger font-weight-bold font-size-13">*</span></label>
+                        <?= form_dropdown('rating', fd_rating(), '', 'class="form-control"') ?>
+                        <div class="invalid-feedback">
+                            Harus diisi!
+                        </div>
+                    </div>
                     <button class="btn-sm btn btn-primary" type="submit">Simpan</button>
                     <a href="<?= base_url($linkin) ?>" class="btn btn-sm btn-danger">Kembali</a>
                 </form>
