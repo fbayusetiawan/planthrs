@@ -36,6 +36,30 @@ class Registrasi_m extends CI_Model
         return $this->db->get($this->namaTable)->row();
     }
 
+    function getDataPartReady()
+    {
+        $this->db->where('statusPart', '5');
+        
+        $this->db->order_by('detail_backlog.price', 'desc');
+        $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $this->db->join('karyawan', 'karyawan.nrp = detail_backlog.nrp', 'left');
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        $this->db->join('popunit', 'popunit.codeUnit = backlog1.codeUnit', 'left');
+        return $this->db->get('detail_backlog')->result();
+    }
+
+    function getDataWaitPart()
+    {
+        $this->db->where('statusPart', '2');
+        
+        $this->db->order_by('detail_backlog.price', 'desc');
+        $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');
+        $this->db->join('karyawan', 'karyawan.nrp = detail_backlog.nrp', 'left');
+        $this->db->join('backlog1', 'backlog1.idBacklog = detail_backlog.idBacklog', 'left');
+        $this->db->join('popunit', 'popunit.codeUnit = backlog1.codeUnit', 'left');
+        return $this->db->get('detail_backlog')->result();
+    }
+
     // function totalBacklog()
     // {
     //     $this->db->select_sum('price');

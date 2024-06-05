@@ -32,6 +32,24 @@ class Registrasi extends CI_Controller
         $this->template->load('template', $this->vn . '/close', $data);
     }
 
+    public function partReady()
+    {
+        $data['title'] = $this->titles;
+        $data['pageTitle'] = "Data " . $this->titles;
+        $data['data'] = $this->primaryModel->getDataPartReady();
+
+        $this->template->load('template', $this->vn . '/partReady', $data);
+    }
+
+    public function waitPart()
+    {
+        $data['title'] = $this->titles;
+        $data['pageTitle'] = "Data " . $this->titles;
+        $data['data'] = $this->primaryModel->getDataWaitPart();
+
+        $this->template->load('template', $this->vn . '/waitPart', $data);
+    }
+
     public function detail()
     {
         $data['row'] =  $this->primaryModel->getDataById($this->uri->segment(4));
