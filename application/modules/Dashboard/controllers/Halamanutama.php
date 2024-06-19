@@ -32,6 +32,7 @@ class Halamanutama extends CI_Controller
         $data["totalPartReady"] = $this->primaryModel->totalPartReady();
         $data["totalPartWaiting"] = $this->primaryModel->totalPartWaiting();
         $data["topChart"] = $this->primaryModel->getTopChart();
+        $data["statusBacklog"] = $this->primaryModel->statusBacklog();
 
         $this->template->load('template', $this->vn . '/list', $data);
     }

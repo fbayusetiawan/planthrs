@@ -71,6 +71,17 @@ class Halamanutama_m extends CI_Model
         }
     }
 
+    public function statusBacklog()
+    {
+        $this->db->where('statusBacklog', '1');
+        $query = $this->db->get('backlog1');
+        if ($query->num_rows() > 0) {
+            return $query->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     function getAllDataBacklog()
     {
         $this->db->join('soh', 'soh.idPart = detail_backlog.idPart', 'left');

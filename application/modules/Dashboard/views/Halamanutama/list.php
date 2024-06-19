@@ -3,7 +3,11 @@ $linkin = $this->uri->segment(1) . '/' . $this->uri->segment(2);
 $no = '1';
 ?>
 <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> -->
-<script src="https://www.gstatic.com/charts/loader.js"></script>
+<!-- <script src="https://www.gstatic.com/charts/loader.js"></script>
+ -->
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script> -->
+
 <div class="row page-title">
     <div class="col-md-12">
         <nav aria-label="breadcrumb" class="float-right mt-1">
@@ -16,6 +20,21 @@ $no = '1';
 </div>
 
 <div class="row">
+    <div class="col-md-6 col-xl-3">
+        <div class="card">
+            <div class="card-body p-0">
+                <h5 class="card-title header-title border-bottom p-3 mb-0">WO Backlog</h5>
+                <div class="container">
+                    <!-- <h1>Pie Chart</h1> -->
+                    <div class="chart-container" style="position: relative; height:31vh; width:100">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 
 
     <div class="col-md-6 col-xl-3">
@@ -173,29 +192,34 @@ $no = '1';
 </div>
 
 </div>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    google.charts.load('current', {
-        'packages': ['corechart']
-    });
-    google.charts.setOnLoadCallback(drawChart);
+    const ctx = document.getElementById('myChart');
 
-    function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-            ['Code Unit', 'Status'],
-            <?php
-            foreach ($wo as $dawo) {
-                echo "['" . $dawo['codeUnit'] . "'," . $dawo['total'] . "],";
+    new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Open', 'Close'],
+            datasets: [{
+                label: 'Status Backlog',
+                data: [<?php echo json_encode($backlogOpen); ?>, <?php echo json_encode($backlogClose); ?>],
+                backgroundColor: [
+                    'rgba(255, 45, 33)',
+                    'rgba(17, 231, 42, 0.8)',
+                ],
+                borderColor: [
+                    'rgba(255, 45, 33)',
+                    'rgba(17, 231, 42, 0.8)',
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
             }
-            ?>
-        ]);
-        var options = {
-            ptitle: 'Outstanding WO Backlog',
-            is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-        chart.draw(data, options);
-    }
+        }
+    });
 </script>
